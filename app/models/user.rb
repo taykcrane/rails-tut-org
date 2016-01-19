@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 	#when called, stores the digest of :remember_token into the database
 	def remember
 		self.remember_token = User.new_token
-		update_attribute(:remember_token, User.digest(remember_token))
+		update_attribute(:remember_digest, User.digest(remember_token))
 	end
 
 	#returns true if the given raw token matches the digest in the database
