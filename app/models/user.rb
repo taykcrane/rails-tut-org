@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 					format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
 					uniqueness: { case_sensitive: false }
 	has_secure_password
-	validates :password, presence: true, length: { minimum: 6 }
+	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
 	#this is the token stored in the user's cookie. paired with the remember_digest stored in the DB
 	attr_accessor :remember_token
